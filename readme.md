@@ -3,7 +3,7 @@
 Projeto prático para usar AUTH do Laravel e criar login e cadastro.
 
 # Sobre o código
- * Laravel 6.0
+ * Laravel 7.0
  * nginx:1.17.0-alpine
  * php:7.3-fpm
  * redis:alpine
