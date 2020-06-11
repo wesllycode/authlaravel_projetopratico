@@ -3,6 +3,10 @@
 
         WORKDIR /var/www
         RUN rm -rf /var/www/html
+
+        RUN chgrp -R www-data /var/www
+        RUN chown -R www-data:www-data /var/www
+
         # Install composer
         RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
         COPY .  /var/www
@@ -15,9 +19,6 @@
         RUN ln -s public html && \
             chmod -R 777 storage
             # vendor/bin/phpunit
-
-        RUN chgrp -R www-data /var/www
-        RUN chown -R www-data:www-data /var/www
 
         RUN rm -rf /var/lib/apt/lists/*
 
