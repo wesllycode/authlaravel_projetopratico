@@ -23,3 +23,5 @@ Auth::routes();
 
 Route::get('/admin', 'AuthController@dashboard')->name('admin');
 Route::get('/admin/login', 'AuthController@showLoginForm')->name('admin.login');
+Route::get('/admin/logout', 'AuthController@logout')->name('admin.logout');
+Route::get('/admin/login/do', 'AuthController@login')->name('admin.login.do');

@@ -22,4 +22,22 @@ class AuthController extends Controller
     {
         return view ('admin.formLogin');
     }
+
+    public function login(Request $request){
+            $credentials = [
+                'email' => $request->email,
+                'password' => $request->password,
+            ];
+            if(Auth::attempt($credentials)){
+                return redirect()->route('admin');
+            }
+
+            return redirect()->back()->withInput()->withErrors(['Os dados informados não confere']);
+
+    }
+
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('admin.login');
+    }
 }
